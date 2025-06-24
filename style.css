@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #0cf;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.card-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px

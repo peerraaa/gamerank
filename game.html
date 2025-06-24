@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recenzija igre | GameRank.rs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 GameRank.rs</h1>
+    <nav>
+      <a href="index.html">Početna</a>
+      <a href="games.html">Sve igre</a>
+      <a href="submit.html">Predloži igru</a>
+    </nav>
+  </header>
+  <main>
+    <section id="game-info"></section>
+    <section>
+      <h3>Ostavi ocenu</h3>
+      <form id="rating-form">
+        <input type="text" placeholder="Tvoje ime (opciono)" />
+        <input type="number" placeholder="Ocena (1-10)" min="1" max="10" required />
+        <textarea placeholder="Komentar (opciono)"></textarea>
+        <button type="submit">Pošalji</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GameRank.rs</p>
+  </footer>
+  <script>
+    const games = {
+      godofwar: {
+        title: "God of War",
+        img: "images/godofwar.jpg",
+        desc: "Akciona avantura sa odličnom pričom i brutalnom borbom.",
+        rating: "9.2",
+      },
+      eldenring: {
+        title: "Elden Ring",
+        img: "images/eldenring.jpg",
+        desc: "Ogroman svet pun izazova i slobode igranja.",
+        rating: "9.5",
+      },
+      fifa: {
+        title: "FIFA 25",
+        img: "images/fifa.jpg",
+        desc: "Nova sezona fudbalskog spektakla sa unapređenom fizikom.",
+        rating: "8.0",
+      },
+    };
+
+    const query = new URLSearchParams(window.location.search);
+    const game = games[query.get("game")];
+
+    if (game) {
+      document.getElementById("game-info").innerHTML = `
+        <h2>${game.title}</h2>
+        <img src="${game.img}" alt="${game.title}" width="400" />
+        <p>${game.desc}</p>
+        <p><strong>Ocena: ${game.rating}/10</strong></p>
+      `;
+    } else {
+      document.getElementById("game-info").innerHTML = "<p>Igra nije pronađena.</p>";
+    }
+  </script>
+</body>
+</html>
